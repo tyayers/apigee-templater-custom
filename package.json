@@ -1,0 +1,27 @@
+{
+  "name": "apigee-templater-custom",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
+  "bin": {
+    "mytemplater": "./bin/mytemplater.js"
+  },
+  "files": [
+    "bin/",
+    "dist/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apigee-templater": "^2.2.0"
+  }
+}
