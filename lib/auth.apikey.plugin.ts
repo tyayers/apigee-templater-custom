@@ -26,7 +26,8 @@ export class APIKeyConfig {
 }
 
 /**
- * Plugin class for handling API Key template requests
+ * Plugin class for handling header API keys
+ * 
  * @date 2/14/2022 - 8:08:34 AM
  *
  * @export
@@ -38,16 +39,16 @@ export class AuthApiKeyPlugin implements ApigeeTemplatePlugin {
   apikey_snippet = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <VerifyAPIKey async="false" continueOnError="false" enabled="true" name="VA-VerifyKey">
       <DisplayName>VA-VerifyKey</DisplayName>
-      <APIKey ref="request.queryparam.apikey"/>
+      <APIKey ref="request.header.x-api-key"/>
   </VerifyAPIKey>`;
 
   removekey_snippet = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <AssignMessage async="false" continueOnError="false" enabled="true" name="AM-RemoveApiKey">
       <DisplayName>AM-RemoveKey</DisplayName>
       <Remove>
-          <QueryParams>
-              <QueryParam name="apikey"/>
-          </QueryParams>
+          <Headers>
+              <Header name="x-api-key"/>
+          </Headers>
       </Remove>
       <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
       <AssignTo createNew="false" transport="http" type="request"/>

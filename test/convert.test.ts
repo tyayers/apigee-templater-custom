@@ -44,7 +44,7 @@ describe('Generate simple normal JSON 1 proxy with customized api key plugin', (
         expect(fs.existsSync("./test/proxies/testproxy/apiproxy/policies/VA-VerifyKey.xml")).to.equal(true);
 
         let policyFileText = fs.readFileSync("./test/proxies/testproxy/apiproxy/policies/VA-VerifyKey.xml", 'utf-8');
-        expect(policyFileText).to.contain('<APIKey ref="request.queryparam.apikey"/>');
+        expect(policyFileText).to.contain('<APIKey ref="request.header.x-api-key"/>');
 
         expect(fs.existsSync("./test/proxies/testproxy/apiproxy/targets/default.xml")).to.equal(true);
       });

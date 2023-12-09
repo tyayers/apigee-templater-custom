@@ -61,7 +61,7 @@ export class AuthApiKeyPlugin {
             value: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <VerifyAPIKey async="false" continueOnError="false" enabled="true" name="VA-VerifyKey">
       <DisplayName>VA-VerifyKey</DisplayName>
-      <APIKey ref="request.queryparam.apikey"/>
+      <APIKey ref="request.header.x-api-key"/>
   </VerifyAPIKey>`
         });
         Object.defineProperty(this, "removekey_snippet", {
@@ -72,9 +72,9 @@ export class AuthApiKeyPlugin {
   <AssignMessage async="false" continueOnError="false" enabled="true" name="AM-RemoveApiKey">
       <DisplayName>AM-RemoveKey</DisplayName>
       <Remove>
-          <QueryParams>
-              <QueryParam name="apikey"/>
-          </QueryParams>
+          <Headers>
+              <Header name="x-api-key"/>
+          </Headers>
       </Remove>
       <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
       <AssignTo createNew="false" transport="http" type="request"/>
