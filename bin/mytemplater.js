@@ -24,7 +24,7 @@ process.removeAllListeners('warning');
 
 let apigeeTemplater = new ApigeeTemplater();
 
-// Set override our own plugins here
+// Set override our own profiles and/or plugins here
 apigeeTemplater.setPluginInProfile("default", new AuthApiKeyPlugin());
 
 const myCli = new cli(apigeeTemplater);
