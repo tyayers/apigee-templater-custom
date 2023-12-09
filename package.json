@@ -1,5 +1,5 @@
 {
-  "name": "apigee-templater-custom",
+  "name": "mytemplater",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -17,11 +17,29 @@
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist/** && tsc",
+    "test": "rm -rf test/proxies && mocha",
+    "deploy": "npm run build && npm publish"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apigee-templater": "^2.2.0"
+    "apigee-templater": "^2.2.0",
+    "apigee-templater-module": "^2.2.0",
+    "archiver": "^6.0.1",
+    "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "@types/archiver": "^6.0.2",
+    "@types/chai": "^4.3.11",
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^10.0.6",
+    "@types/unzipper": "^0.10.9",
+    "chai": "^4.3.10",
+    "extract-zip": "^2.0.1",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "unzipper": "^0.10.14"
   }
 }

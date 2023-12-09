@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Copyright 2022 Google LLC
  *
@@ -14,19 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { ApigeeTemplater } from 'apigee-templater-module'
-import { cli } from 'apigee-templater'
-// Import customized AuthApiKeyPlugin
-import { AuthApiKeyPlugin } from '../dist/lib/auth.apikey.plugin.js';
-
-process.removeAllListeners('warning');
-
-let apigeeTemplater = new ApigeeTemplater();
-
-// Set override our own plugins here
-apigeeTemplater.setPluginInProfile("default", new AuthApiKeyPlugin());
-
-const myCli = new cli(apigeeTemplater);
-
-myCli.process(process.argv);
+export {};

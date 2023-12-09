@@ -1,0 +1,31 @@
+{
+    "name": "testproxy",
+    "profile": "default",
+    "endpoints": [
+      {
+        "name": "default",
+        "basePath": "/httpbin",
+        "target": {
+          "name": "default",
+          "url": "https://httpbin.org",
+          "headers": {
+            "Accept-Encoding": "gzip,deflate"
+          }
+        },
+        "quotas": [
+          {
+            "count": "200",
+            "timeUnit": "day"
+          }
+        ],
+        "spikeArrest": {
+          "rate": "20s"
+        },
+        "auth": [
+          {
+            "type": "apikey"
+          }
+        ]
+      }
+    ]
+  }
