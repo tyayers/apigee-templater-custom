@@ -15,15 +15,7 @@
  */
 
 import Handlebars from 'handlebars'
-import { ApigeeTemplatePlugin, PlugInResult, proxyEndpoint, authTypes, RunPoint, FlowRunPoint } from 'apigee-templater-module'
-
-export class APIKeyConfig {
-  type: string = "";
-  name: string = "";
-  flowRunPoints: FlowRunPoint[] = [];
-  continueOnError: boolean = false;
-
-}
+import { ApigeeTemplatePlugin, PlugInResult, proxyEndpoint, authTypes, RunPoint } from 'apigee-templater-module'
 
 /**
  * Plugin class for handling header API keys
